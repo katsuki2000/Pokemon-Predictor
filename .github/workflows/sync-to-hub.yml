@@ -1,0 +1,21 @@
+name: Sync to Hugging Face Hub
+on:
+  push:
+    branches: [main]
+  force_push: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Push to Hub
+        uses: huggingface/hub-sync@v1.0
+        with:
+          github_repo_id: katsuki2000/Pokemon-Predictor
+          huggingface_repo_id: ratarata44/Pokemon-Predictor
+          repo_type: space # Peut être 'model', 'dataset' ou 'space'
+          hf_token: ${{ secrets.HF_TOKEN }}
