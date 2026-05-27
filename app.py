@@ -7,7 +7,7 @@ app = FastAPI()
 
 # Chargement de ton modèle
 # Assure-toi que le nom du fichier correspond exactement au tien
-model = joblib.load('modele_pokemon.mod')
+model = joblib.load('models/modele_pokemon.mod')
 
 # Définition du format des données d'entrée
 class PokemonData(BaseModel):
